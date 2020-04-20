@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import './FirstPages.scss'
 const FirstPages= () =>{
 
+
+
+
 const [imgs,setImgs]= useState(' ')
 
    useEffect(()=> {
