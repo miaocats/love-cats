@@ -14,11 +14,11 @@ const [imgs,setImgs]= useState([])
             );
             const data = await response.json();
             const nums = data.length;
-            console.log(data.length);
-            console.log(data[0]['url']);
-            let i;
+            // console.log(data.length);
+            // console.log(data[0]['url']);
+
             let imgsArray = [];
-            for (i = 0 ; i<nums;i++){
+            for (let i = 0 ; i<nums;i++){
                 imgsArray.push(data[i]['url']);
             };
             setImgs(imgsArray);
@@ -29,27 +29,57 @@ const [imgs,setImgs]= useState([])
 );
 
 
-
+/*
     let imgsClass = 'img-first';
     let imgsList = 'imglist-first';
-    if (window.innerWidth>500){
+    let listImgs;
+    if (window.innerWidth>900){
         imgsClass='img-second';
-        imgsList='imglist-second'
+        imgsList='imglist-second';
+
+        let imgListFirst = [];
+        for(let i = 0 ;i <imgs.length;i+=2){
+            imgListFirst.push(imgs[i]);
+        };
+        let imgListSecond = [];
+        for(let i = 1 ;i <imgs.length;i+=2){
+            imgListSecond.push(imgs[i]);
+        };
+        listImgs = imgs.map(
+            (imgsSingle)=>
+                <li>
+                    <img className={imgsClass} alt="Loading-----Cat" loading="lazy" src={imgsSingle}/>
+                    <img className={imgsClass} alt="Loading-----Cat" loading="lazy" src={imgsSingle}/>
+                </li>
+
+        )
+    }else{
+         listImgs = imgs.map(
+            (imgsSingle)=>
+                <li>
+                    <img className={imgsClass} alt="Loading-----Cat" loading="lazy" src={imgsSingle}/>
+
+                </li>
+        );
+        console.log(typeof(listImgs));
     };
 
-const listImgs = imgs.map(
-    (imgsSingle)=>
-        <img className={imgsClass} alt="Loading--Cat" loading="lazy" src={imgsSingle}/>
-);
+*/
 
+    let listImgs = imgs.map(
+        (imgsSingle)=>
+            <li>
+                <img  alt="Loading-----Cat" loading="lazy" src={imgsSingle}/>
 
+            </li>
+    );
 
     return(
         <div >
             <h1>Cat Photos</h1>
-            <div className={imgsList}>
+            <ul >
             {listImgs}
-            </div>
+            </ul>
         </div>
     )
 };
