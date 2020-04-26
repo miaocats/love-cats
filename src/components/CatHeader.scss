@@ -1,0 +1,22 @@
+.cat-header{
+  ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    li{
+      //border: 1px blue solid;
+      display: flex;
+      border-radius: 20px;
+      color: #5e5e5e;
+      padding: 4px;
+      background-color: aliceblue;
+      align-items: center;
+    img{
+      width: 20px;
+      border-radius: 10px;
+    }
+    }
+  }
+}

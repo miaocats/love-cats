@@ -1,16 +1,24 @@
 import React, {useEffect, useState} from 'react';
 import './FirstPages.scss'
-const FirstPages= () =>{
+const FirstPages= ({catTypes}) =>{
 
 
 
 
-const [imgs,setImgs]= useState([])
+const [imgs,setImgs]= useState([]);
+
+const [urls ,setUrls] = useState(`https://api.thecatapi.com/v1/images/search?limit=19&page=10&order=Desc`);
+
+
+
 
    useEffect(()=> {
+       if (1===1){
+           setUrls(`https://api.thecatapi.com/v1/images/search?category_ids=2&limit=19&page=10&order=Desc`)
+       };
         const getimgs = async () => {
             const response = await fetch(
-                `https://api.thecatapi.com/v1/images/search?limit=19&page=10&order=Desc`
+                urls
             );
             const data = await response.json();
             const nums = data.length;
@@ -25,7 +33,7 @@ const [imgs,setImgs]= useState([])
             console.log(window.innerWidth);
         };
         getimgs();
-    },[]
+    },[urls]
 );
 
 
@@ -69,14 +77,14 @@ const [imgs,setImgs]= useState([])
     let listImgs = imgs.map(
         (imgsSingle)=>
             <li>
-                <img  alt="Loading-----Cat" loading="lazy" src={imgsSingle}/>
+                <img  alt="Loading" loading="lazy" src={imgsSingle}/>
 
             </li>
     );
 
     return(
-        <div >
-            <h1>Cat Photos</h1>
+        <div className='first-pages'>
+            <p>{catTypes}</p>
             <ul >
             {listImgs}
             </ul>
