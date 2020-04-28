@@ -7,13 +7,14 @@ function App() {
     const [catType,setCatType]=useState();
     const handleChange=(e)=>{
        setCatType(e);
-        console.log(e);
+       // console.log(e);
 
     };
   return (
     <div className="App">
     <CatHeader clicks={handleChange}/>
       <FirstPages catTypes={catType}/>
+      <p>If you wanna more cats imgs just reflash this pages</p>
     </div>
   );
 }

@@ -5,17 +5,24 @@
     justify-content: space-around;
     align-items: center;
     list-style: none;
+    //border: 1px solid red;
+    padding: 15px 15px 0px 15px;
+    margin: 0;
+    background-color: azure;
     li{
-      //border: 1px blue solid;
+
       display: flex;
+      //border: 1px red solid;
       border-radius: 20px;
       color: #5e5e5e;
       padding: 4px;
       background-color: aliceblue;
       align-items: center;
     img{
-      width: 20px;
+      width: 23px;
       border-radius: 10px;
+      margin-right: 5px;
+
     }
     }
   }
