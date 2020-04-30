@@ -7,25 +7,29 @@ const FirstPages= ({catTypes}) =>{
 
 const [imgs,setImgs]= useState([]);
 
-const [urls ,setUrls] = useState(`https://api.thecatapi.com/v1/images/search?limit=50&page=10&order=Desc`);
+const [urls ,setUrls] = useState(`https://api.thecatapi.com/v1/images/search?limit=10&order=Desc`);
 
 
 
 
 const handleUrls =(e)=>{
-    setUrls(`https://api.thecatapi.com/v1/images/search?${e}&limit=50&page=10&order=Desc`);
-    console.log(urls);
+    localStorage.setItem('urls',`https://api.thecatapi.com/v1/images/search?${e}&limit=10&order=Desc`);
+    setUrls(urls);
+    //console.log(urls);
 };
 
-console.log(typeof(catTypes));
+console.log(typeof(urls));
 
    useEffect(()=> {
 
         //handleUrls();
-       if (typeof(catTypes)=="string"){
+       /* if (typeof(catTypes)=="string"){
            handleUrls(catTypes);
        };
-
+        if (urls===' '){
+            console.log('55555555555555555555555');
+        }
+*/
        const getimgs = async () => {
             const response = await fetch(
                 urls
@@ -40,7 +44,7 @@ console.log(typeof(catTypes));
                 imgsArray.push(data[i]['url']);
             };
             setImgs(imgsArray);
-            console.log(window.innerWidth);
+            //console.log(window.innerWidth);
         };
         getimgs();
     },[urls,catTypes]

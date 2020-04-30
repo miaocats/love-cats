@@ -6,6 +6,7 @@ import  cat from '../img/cat.jpg';
 const CatHeader =({clicks}) =>{
     return(
         <div className='cat-header'>
+
     <ul>
                 <li onClick={()=>{clicks('&mime_types=gif')}}><img src={cat} alt='icons' />animated</li>
                 <li onClick={()=>{clicks('&category_ids=3')}}><img src={cat} alt='icons' /> funny</li>
